@@ -20,4 +20,8 @@ class Project extends Model
         'publication_date',
         'slug',
     ];
+
+    public function type() {
+        return $this->belognsTo(Type::class);
+    }
 }
