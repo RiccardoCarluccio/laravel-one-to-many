@@ -21,6 +21,7 @@
           <td>{{ $project->publication_date }}</td>
           <td>{{ $project->description }}</td>
           <td>{{ $project->slug }}</td>
+          <td>{{ $project->type->type }}</td>
           <td>
             <form action="{{route('admin.projects.destroy', $project->slug)}}" method="POST">
               @csrf()
