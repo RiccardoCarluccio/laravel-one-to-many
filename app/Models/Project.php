@@ -19,6 +19,7 @@ class Project extends Model
         'description',
         'publication_date',
         'slug',
+        'type_id',
     ];
 
     public function type() {

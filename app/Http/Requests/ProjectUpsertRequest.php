@@ -29,7 +29,8 @@ class ProjectUpsertRequest extends FormRequest
         return [
             "title" => "required|max:255",
             "url" => "required",
-            "description" => "nullable"
+            "description" => "nullable",
+            "type_id" => "nullable|exists:types,id"
         ];
     }
 

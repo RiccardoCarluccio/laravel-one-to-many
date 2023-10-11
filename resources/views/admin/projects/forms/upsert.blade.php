@@ -22,6 +22,19 @@
         </div>
 
         <div class="col-12">
+            <label for="inputType" class="form-label @error('type') is-invalid @enderror">Type</label>
+            <select name="type" id="inputType"></select>
+                @foreach ($types as $type)
+                    <option value="{{ $type->id }}" {{ $project->type_id === $type->id ? "selected" : "" }}>
+                        {{ $type->name }}
+                    </option>
+                @endforeach
+            @error('type')
+                <div class="invalid_feedback">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="col-12">
             <label for="inputThumb" class="form-label @error('thumb') is-invalid @enderror">Image URL</label>
             <input type="file" class="form-control" id="inputThumb" name="thumb"
                 value="{{ old('thumb', $project?->thumb) }}" accept="image/*">

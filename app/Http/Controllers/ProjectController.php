@@ -6,6 +6,8 @@ use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
+use App\Models\Type;
+
 use App\Http\Requests\ProjectUpsertRequest;
 
 class ProjectController extends Controller
@@ -56,7 +58,10 @@ class ProjectController extends Controller
     public function edit($slug)
     {
         $project = Project::where("slug", $slug)->firstOrFail();
-        return view("admin.projects.edit", compact("project"));
+
+        $type = Type::all();
+
+        return view("admin.projects.edit", compact("project", "type"));
     }
 
     /**
