@@ -23,12 +23,13 @@
 
         <div class="col-12">
             <label for="inputType" class="form-label @error('type') is-invalid @enderror">Type</label>
-            <select name="type" id="inputType"></select>
+            <select name="type" id="inputType">
                 @foreach ($types as $type)
                     <option value="{{ $type->id }}" {{ $project->type_id === $type->id ? "selected" : "" }}>
-                        {{ $type->name }}
+                        {{ $type->type }}
                     </option>
                 @endforeach
+            </select>                
             @error('type')
                 <div class="invalid_feedback">{{ $message }}</div>
             @enderror
